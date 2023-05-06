@@ -1,12 +1,97 @@
-header{
+header {
     background-color: lightcyan;
     padding: 25px;
 }
 
-h2{
+
+h2 {
     color: darkcyan;
 }
 
-#side{
-    width: 10%;
+.navbar-logo {
+    width: 150px;
+}
+
+.search {
+    margin-right: 10px;
+}
+
+.anaconda{
+    font-size: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .navbar-logo {
+        width: 20%;
+    }
+
+    .font-size-decrice{
+        display: none;
+    }
+
+    .form-control {
+        width: 80%;
+    }
+
+    .search-bar {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:575px) {
+    
+    .left-side{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .navbar-logo {
+        width: 30%;
+    }
+    .text-uppercase {
+        font-size: 25px;
+    }
+    button{
+        padding: 5px;
+        border-radius: 50px;        
+    }
+    .left-side{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        
+    }
+}
+
+@media screen and (max-width:375px) {
+    .navbar-logo {
+        width: 30%;
+    }
+
+    .text-uppercase {
+        font-size: 23px;
+    }
+
+
+
+    .left-side{
+        display: flex;
+
+    }
+}
+
+@media screen and (max-width:320px) {
+    .navbar-logo {
+        width: 30%;
+    }
+
+    .text-uppercase {
+        font-size: 20px;
+    }
+
 }

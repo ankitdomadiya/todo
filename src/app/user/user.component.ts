@@ -54,6 +54,11 @@ export class UserComponent {
    this.UserDetails = item;
    this.updateData = true;
   }
+  
+  close(){
+    this.updateData = false;
+    this.UserDetails = new UserDetails(); 
+  }
 
   // #################### update user ################
   
@@ -62,6 +67,7 @@ export class UserComponent {
       next:(res)=>{
         this.fetchUser();
         this.UserDetails = new UserDetails(); 
+        this.updateData = false;
       },
       error:(err)=>{console.log(err);},
       complete:()=>{ 
