@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
+// #################### add bootstrap icons ###################
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+
+// ############### import ngx toasted ######################
+
+.form-box{
+    padding: 25px;
+    background-color: gray;
+    margin: 0px auto;
+}
+
+h4{
+    text-align: center;
+}
+
+.model-body{
+    margin: -18px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+th, td{
+    text-align: center;
+    padding: 8px;
+}
+
+th{
+    background-color: lightseagreen;
+    color: azure;
+}
+
+tr:nth-child(even){
+    background-color: azure;
+}
+
+.model-header{
+    background-color: lightblue;
+    color: azure;
+}
+
+.close-btn1{
+    font-family: cursive;
+    background-color: aliceblue;
+    padding: 6px 12px;
+    border-radius: 23px;
+    cursor: pointer;
+}
+
+// .form h1::after{
+//     content: '';
+//     display: block;
+//     width: 100%;
+//     border: 3px solid #d02020;
+// }
