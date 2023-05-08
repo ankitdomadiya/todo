@@ -8,15 +8,14 @@ import { UserDetails, UsersService } from '../api/users.service';
 })
 export class UserComponent {
 
-  userData : Array<UserDetails> = new Array<UserDetails>();
+  userData: Array<UserDetails> = new Array<UserDetails>();
   FilterEmployeeDetails: Array<UserDetails> = new Array<UserDetails>();
-
   UserDetails!: UserDetails;
   updateData: boolean = false;
   searchValue!: string;
 
 
-  constructor(private Api: UsersService){}
+  constructor(private Api: UsersService) { }
 
   ngOnInit(): void {
     this.UserDetails = new UserDetails();
@@ -24,68 +23,73 @@ export class UserComponent {
   }
 
   // ############### Add User ##############
-  addDetais(){
-   this.Api.addUsers(this.UserDetails).subscribe({
-    next:(res)=>{ this.fetchUser() },
-    error:(err)=>{console.log(err);},
-    complete:()=>{
-      this.UserDetails = new UserDetails(); 
+  addDetais() {
+    if (this.UserDetails.name) {
+      this.Api.addUsers(this.UserDetails).subscribe({
+        next: (res) => { this.fetchUser() },
+        error: (err) => { console.log(err); },
+        complete: () => {
+          this.UserDetails = new UserDetails();
+        }
+      })
     }
-   })
+    else{
+      alert("Enter Details");
+    }
   }
 
   // ############## fetch user ####################
 
-  fetchUser(){
+  fetchUser() {
     this.Api.getAllUsers().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.userData = res;
         this.FilterEmployeeDetails = res;
       },
-      error:(err)=>{console.log(err);},
-      complete:()=>{ }
+      error: (err) => { console.log(err); },
+      complete: () => { }
     })
   }
 
 
   // ################# fill data in input field ####################
 
-  fullUserData(item: UserDetails){
-   this.UserDetails = item;
-   this.updateData = true;
+  fullUserData(item: UserDetails) {
+    this.UserDetails = item;
+    this.updateData = true;
   }
-  
-  close(){
+
+  close() {
     this.updateData = false;
-    this.UserDetails = new UserDetails(); 
+    this.UserDetails = new UserDetails();
   }
 
   // #################### update user ################
-  
-  updateUser(){
+
+  updateUser() {
     this.Api.updateUserData(this.UserDetails).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.fetchUser();
-        this.UserDetails = new UserDetails(); 
+        this.UserDetails = new UserDetails();
         this.updateData = false;
       },
-      error:(err)=>{console.log(err);},
-      complete:()=>{ 
-        
-       }
+      error: (err) => { console.log(err); },
+      complete: () => {
+
+      }
     })
   }
 
   // ################## Delete User ########################
 
-  deleteUser(item: any){
+  deleteUser(item: any) {
     this.Api.deleteUser(item.id).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log("user deleted");
         this.fetchUser();
       },
-      error:(err)=>{console.log(err);},
-      complete:()=>{ 
+      error: (err) => { console.log(err); },
+      complete: () => {
         this.FilterEmployeeDetails.splice(item, 1);
       }
     })
@@ -96,9 +100,9 @@ export class UserComponent {
   // FilterEmployeeDetails: Array<Employee> = new Array<Employee>();
 
 
-// this.FilterEmployeeDetails = x;
+  // this.FilterEmployeeDetails = x;
 
-search() {
+  search() {
     if (this.searchValue) {
       let searchEmployee = new Array<UserDetails>();
       if (this.userData.length > 0) {
@@ -107,13 +111,14 @@ search() {
             searchEmployee.push(emp);
           }
         }
-        this.FilterEmployeeDetails= searchEmployee;
+        this.FilterEmployeeDetails = searchEmployee;
       }
     }
     else {
       this.FilterEmployeeDetails = this.userData;
     }
   }
+
 
 
 }

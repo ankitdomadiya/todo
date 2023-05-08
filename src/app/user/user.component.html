@@ -1,12 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary pb-3">
-  <div class="container-fluid">
-    <img src="assets/logo.png" alt="logo" class="navbar-logo">
-    <h1 class="text-uppercase font-size-decrice">to do list</h1>
-    <form class="d-flex search-bar" role="search">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm bg-body rounded">
+  <div class="container-fluid ">
+    <img src="assets/logo.png" alt="logo" class="navbar-logo shadow-logo ">
+    <h1 class="text-uppercase font-size-decrice shadow-name">to do list</h1>
+    <form class="d-flex search-bar " role="search">
       <input type="text" name="search" [(ngModel)]="searchValue" (keyup)="search()" autocomplete="off"
-        placeholder="Enter Serch Value" class="form-control search mr-3 input-sm" id="EmpName">
-      <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal"
-        data-bs-whatever="@getbootstrap"><i class="fa fa-plus anacon" aria-hidden="true"></i></button>
+        placeholder="Enter Serch Value" class="form-control search mr-3 input-sm shadow" id="EmpName">
     </form>
   </div>
 </nav>
@@ -14,23 +12,23 @@
 
 <!-- ##############################################  tags section ################################################# -->
 
-<section class="container-fluid">
+<section class="container-fluid padding ">
   <div class="row">
-    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2.5 col-sm-4 left-side">
-      <div class="sidebar">
-        <h6 class="mt-3 ps-4 mb-2"><i class="fa fa-tasks" aria-hidden="true"></i> Tags</h6>
+    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 side-bar">
+      <div class="sidebar shadow p-3 mb-5 bg-body rounded">
+        <h6><i class="fa fa-tasks" aria-hidden="true"></i>Tags</h6>
         <hr>
-        <ul class="mt-2 ps-5">
-          <li>-Work</li>
-          <li>-Personal</li>
-          <li>-Food</li>
-        </ul>
+        <div class="tag">
+          <div>-Work</div>
+          <div>-Personal</div>
+          <div>-Food</div>
+        </div>
       </div>
     </div>
 
     <!-- ################################# Show Task Section ################################# -->
-    
-    <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9.5 col-sm-8 right-side">
+
+    <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-9 right-side shadow p-3 mb-5 bg-body rounded">
       <div class="row">
         <table>
           <tr>
@@ -44,9 +42,11 @@
             <td>{{item.name}}</td>
             <td>{{item.tag}}</td>
             <td>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                style="margin-right: 20px;" (click)="fullUserData(item)"><i class="bi bi-pencil-square"></i></button>
-              <button class="btn btn-danger" (click)="deleteUser(item)"><i class="bi bi-trash3-fill"></i></button>
+              <button class="btn btn-primary circle-border edit-btn" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="fullUserData(item)"><i
+                  class="bi bi-pencil-square"></i></button>
+              <button class="btn btn-danger circle-border delete-btn left-margin" (click)="deleteUser(item)"><i
+                  class="bi bi-trash3-fill"></i></button>
             </td>
           </tr>
         </table>
@@ -76,9 +76,9 @@
             <select class="form-select" aria-label="Default select example " name="UserDetailsTag"
               [(ngModel)]="UserDetails.tag">
               <option selected>Open this select menu</option>
-              <option value="ok">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Food">Food</option>
             </select>
           </div>
         </form>
@@ -92,3 +92,15 @@
     </div>
   </div>
 </div>
+
+
+<!-- ######### add value button ######### -->
+
+<div class="sticky ">
+  <button class="btn btn-success circle-border add-task-btn" type="submit" data-bs-toggle="modal"
+    data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fa fa-plus anacon"
+      aria-hidden="true"></i></button>
+      <a href="#" class="btn btn-info circle-border add-task-btn"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+</div>
+
+
