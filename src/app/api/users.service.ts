@@ -29,21 +29,6 @@ export class UsersService {
   // ############## Get Api ##############
 
   getAllUsers(){
-    let time = this.httpHeaders.get('settimeout');
-    console.log( this.httpHeaders.get('Authorization'));
-    let counter=0;
-
-    setInterval(()=>{
-    counter +=1;
-      if(time === counter.toString()){
-        this.httpHeaders = this.httpHeaders.set('Authorization', 'Ankit');
-        console.log( this.httpHeaders.get('Authorization')); 
-      }else{
-        console.log( this.httpHeaders.get('Authorization')); 
-     
-      }
-    },1000);
-
     return this.http.get<Array<UserDetails>>(this.userUrl,{headers:this.httpHeaders});
   }
 
@@ -65,4 +50,6 @@ export class UserDetails{
   id?: number;
   name?: string;
   tag?: string;
+ color1?: string;
+ color2?:string; 
 }

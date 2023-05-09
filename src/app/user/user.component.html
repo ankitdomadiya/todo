@@ -1,106 +1,126 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm bg-body rounded">
-  <div class="container-fluid ">
-    <img src="assets/logo.png" alt="logo" class="navbar-logo shadow-logo ">
-    <h1 class="text-uppercase font-size-decrice shadow-name">to do list</h1>
-    <form class="d-flex search-bar " role="search">
-      <input type="text" name="search" [(ngModel)]="searchValue" (keyup)="search()" autocomplete="off"
-        placeholder="Enter Serch Value" class="form-control search mr-3 input-sm shadow" id="EmpName">
-    </form>
-  </div>
-</nav>
+<section>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm bg-body rounded">
+    <div class="container-fluid ">
+      <img src="assets/logo.png" alt="logo" class="navbar-logo shadow-logo ">
+      <h1 class="text-uppercase font-size-decrice">to do list</h1>
+      <form class="d-flex search-bar " role="search">
+        <input type="text" name="search" [(ngModel)]="searchValue" (keyup)="search()" autocomplete="off"
+          placeholder="Enter Serch Value" class="form-control search mr-3 input-sm " id="EmpName">
+      </form>
+    </div>
+  </nav>
 
+  <!-- ##############################################  tags section ################################################# -->
 
-<!-- ##############################################  tags section ################################################# -->
+  <section class="container-fluid padding ">
+    <div class="row">
+      <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 side-bar">
+        <div class="sidebar shadow p-3 mb-5 bg-body rounded">
+          <h6><i class="fa fa-tasks" aria-hidden="true"></i>Tags</h6>
+          <hr>
+          <div class="tag">
+            <div>-Work</div>
+            <div>-Personal</div>
+            <div>-Food</div>
+          </div>
+        </div>
+      </div>
 
-<section class="container-fluid padding ">
-  <div class="row">
-    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 side-bar">
-      <div class="sidebar shadow p-3 mb-5 bg-body rounded">
-        <h6><i class="fa fa-tasks" aria-hidden="true"></i>Tags</h6>
-        <hr>
-        <div class="tag">
-          <div>-Work</div>
-          <div>-Personal</div>
-          <div>-Food</div>
+      <!-- ################################# Show Task Section ################################# -->
+
+      <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-9 right-side shadow p-3 mb-5 bg-body rounded">
+        <div class="row ">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Tag</th>
+              <th>Action</th>
+            </tr>
+            <ng-container *ngFor="let item of FilterEmployeeDetails">
+              <tr class="text-capitalize">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td><span [style.color]="item.color2" [style.background-color]="item.color1"
+                    class="p-2 rounded-pill">{{item.tag}}</span></td>
+                <td>
+                  <button class="btn btn-primary circle-border edit-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="fullUserData(item)"><i
+                      class="bi bi-pencil-square"></i></button>
+                  <button class="btn btn-danger circle-border delete-btn left-margin" (click)="deleteUser(item)"><i
+                      class="bi bi-trash3-fill"></i></button>
+                </td>
+              </tr>
+            </ng-container>
+          </table>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ################################# Show Task Section ################################# -->
+  <!-- ####################################### add task ################################# -->
 
-    <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-9 col-sm-9 right-side shadow p-3 mb-5 bg-body rounded">
-      <div class="row">
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Tag</th>
-            <th>Action</th>
-          </tr>
-          <tr class="text-capitalize" *ngFor="let item of FilterEmployeeDetails">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.tag}}</td>
-            <td>
-              <button class="btn btn-primary circle-border edit-btn" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" (click)="fullUserData(item)"><i
-                  class="bi bi-pencil-square"></i></button>
-              <button class="btn btn-danger circle-border delete-btn left-margin" (click)="deleteUser(item)"><i
-                  class="bi bi-trash3-fill"></i></button>
-            </td>
-          </tr>
-        </table>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="close()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Task Name:</label>
+              <input type="text" class="form-control" name="UserDetailsName" [(ngModel)]="UserDetails.name">
+
+              <!-- ####################### selector ####################### -->
+              <label for="recipient-name" class="col-form-label">Tag Name:</label>
+              <select class="form-select" aria-label="Default select example " name="UserDetailsTag"
+                [(ngModel)]="UserDetails.tag">
+                <option value="Work" selected>Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Food">Food</option>
+              </select>
+
+              <!-- ####################### insert color ######### -->
+              <div class="d-flex justify-content-around">
+                <div>
+                  <input type="color" class="glow-on-hover" name="one" [(ngModel)]="UserDetails.color1">
+                  <p class="text-center">background</p>
+                </div>
+                <div>
+                  <input type="color" class="glow-on-hover" name="two" [(ngModel)]="UserDetails.color2">
+                  <p class="text-center">font</p>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" (click)="close()" data-bs-dismiss="modal">Close</button> -->
+
+          <button class="button-34" role="button" (click)="close()" data-bs-dismiss="modal">Close</button>
+
+          <button class="button-33" role="button" data-bs-dismiss="modal"
+            (click)="updateData ? updateUser() : addDetais()">{{ updateData ?
+            'Update':'Submit'}}</button>
+
+        </div>
       </div>
     </div>
   </div>
+
 </section>
-
-
-<!-- ####################################### add task ################################# -->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Task</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="close()" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Task Name:</label>
-            <input type="text" class="form-control" name="UserDetailsName" [(ngModel)]="UserDetails.name">
-
-            <!-- ####################### selector ####################### -->
-            <label for="recipient-name" class="col-form-label">Tag Name:</label>
-            <select class="form-select" aria-label="Default select example " name="UserDetailsTag"
-              [(ngModel)]="UserDetails.tag">
-              <option selected>Open this select menu</option>
-              <option value="Work">Work</option>
-              <option value="Personal">Personal</option>
-              <option value="Food">Food</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="close()" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-          (click)="updateData ? updateUser() : addDetais()">{{ updateData ?
-          'Update':'Submit'}}</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!-- ######### add value button ######### -->
 
-<div class="sticky ">
+<div class="sticky">
   <button class="btn btn-success circle-border add-task-btn" type="submit" data-bs-toggle="modal"
-    data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fa fa-plus anacon"
+    data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fa fa-plus"
       aria-hidden="true"></i></button>
-      <a href="#" class="btn btn-info circle-border add-task-btn"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+  <button *ngIf="isShow" (click)="gotoTop()" class="scroll-to-top">
+    <i class="fa fa-chevron-up"></i>
+  </button>
 </div>
-
-
