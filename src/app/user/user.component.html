@@ -22,7 +22,13 @@
             <div>-Work</div>
             <div>-Personal</div>
             <div>-Food</div>
+            
           </div>
+        </div>
+        <!-- ########### add button for complete and incomplete ######### -->
+        <div class="checkbox-wrapper-10">
+          <input class="tgl tgl-flip" id="cb5" type="checkbox" checked />
+          <label class="tgl-btn" data-tg-off="Incomplete" data-tg-on="Complete!" for="cb5"></label>
         </div>
       </div>
 
@@ -71,12 +77,12 @@
           <form>
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Task Name:</label>
-              <input type="text" class="form-control" name="UserDetailsName" [(ngModel)]="UserDetails.name">
+              <input type="text" class="form-control" name="UserDetailsName" [(ngModel)]="userDetails.name">
 
               <!-- ####################### selector ####################### -->
               <label for="recipient-name" class="col-form-label">Tag Name:</label>
               <select class="form-select" aria-label="Default select example " name="UserDetailsTag"
-                [(ngModel)]="UserDetails.tag">
+                [(ngModel)]="userDetails.tag">
                 <option value="Work" selected>Work</option>
                 <option value="Personal">Personal</option>
                 <option value="Food">Food</option>
@@ -85,11 +91,11 @@
               <!-- ####################### insert color ######### -->
               <div class="d-flex justify-content-around">
                 <div>
-                  <input type="color" class="glow-on-hover" name="one" [(ngModel)]="UserDetails.color1">
+                  <input type="color" class="glow-on-hover" name="one" [(ngModel)]="userDetails.color1">
                   <p class="text-center">background</p>
                 </div>
                 <div>
-                  <input type="color" class="glow-on-hover" name="two" [(ngModel)]="UserDetails.color2">
+                  <input type="color" class="glow-on-hover" name="two" [(ngModel)]="userDetails.color2">
                   <p class="text-center">font</p>
                 </div>
               </div>
@@ -124,3 +130,7 @@
     <i class="fa fa-chevron-up"></i>
   </button>
 </div>
+
+
+
+

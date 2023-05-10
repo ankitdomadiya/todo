@@ -12,34 +12,57 @@ export class UserComponent {
 
   userData: Array<UserDetails> = new Array<UserDetails>();
   FilterEmployeeDetails: Array<UserDetails> = new Array<UserDetails>();
-  UserDetails!: UserDetails;
+  userDetails!: UserDetails;
   updateData: boolean = false;
   searchValue!: string;
 
   isShow: boolean = false;
+  isDuplicate:boolean = false;
 
-
-  constructor(private Api: UsersService, private toastr: ToastrService, @Inject(DOCUMENT) private document: Document) { }
+  constructor(private Api: UsersService, private toastr: ToastrService,) { }
 
   ngOnInit(): void {
-    this.UserDetails = new UserDetails();
+
+    this.userDetails = new UserDetails();
     this.fetchUser();
+  }
+
+  duplicateRemove() {
+    if(this.userData.length > 0){
+      for (let item of this.userData) {
+        if(item.name == this.userDetails.name){
+          this.isDuplicate = false;
+        }
+        else{
+          this.isDuplicate = true;
+        }
+      }
+    }
+    else{
+      this.isDuplicate = true;
+    }
   }
 
   // ############### Add User ##############
   addDetais() {
-    if (this.UserDetails.name) {
-      this.Api.addUsers(this.UserDetails).subscribe({
-        next: (res) => { this.fetchUser() },
-        error: (err) => { console.log(err); },
-        complete: () => {
-          this.UserDetails = new UserDetails();
-          this.toastr.success("Add Data SuccessFully")
-        }
-      })
+    this.duplicateRemove();
+    if (this.isDuplicate) {
+      if (this.userDetails.name) {
+        this.Api.addUsers(this.userDetails).subscribe({
+          next: (res) => { this.fetchUser() },
+          error: (err) => { console.log(err); },
+          complete: () => {
+            this.userDetails = new UserDetails();
+            this.toastr.success("Add Data SuccessFully")
+          }
+        })
+      }
+      else {
+        alert("Enter Details");
+      }
     }
     else {
-      alert("Enter Details");
+      this.toastr.warning("Can't Add Duplicate Value")
     }
   }
 
@@ -62,22 +85,22 @@ export class UserComponent {
   // ################# fill data in input field ####################
 
   fullUserData(item: UserDetails) {
-    this.UserDetails = item;
+    this.userDetails = item;
     this.updateData = true;
   }
 
   close() {
     this.updateData = false;
-    this.UserDetails = new UserDetails();
+    this.userDetails = new UserDetails();
   }
 
   // #################### update user ################
 
   updateUser() {
-    this.Api.updateUserData(this.UserDetails).subscribe({
+    this.Api.updateUserData(this.userDetails).subscribe({
       next: (res) => {
         this.fetchUser();
-        this.UserDetails = new UserDetails();
+        this.userDetails = new UserDetails();
         this.updateData = false;
       },
       error: (err) => { console.log(err); },
@@ -126,7 +149,7 @@ export class UserComponent {
     }
   }
 
-
+ 
   /*------------ Scroll Top Button --------------*/
   @HostListener('window:scroll')
   checkScroll() {
@@ -170,6 +193,4 @@ export class UserComponent {
 //     (td.style as any).color = (event.target as HTMLInputElement).value;
 //   });
 // }
-
-
 
