@@ -19,6 +19,8 @@ export class UserComponent {
   isShow: boolean = false;
   isDuplicate:boolean = false;
 
+  conditionTF = false;
+
   constructor(private Api: UsersService, private toastr: ToastrService,) { }
 
   ngOnInit(): void {
@@ -42,6 +44,49 @@ export class UserComponent {
       this.isDuplicate = true;
     }
   }
+
+  allAndCompletedTasks(event:any){
+    if(event.target.checked){
+      this.conditionTF = true;
+    }
+    else{
+      this.conditionTF = false
+    }
+  }
+
+  convertDoneOnUnDone(event:any,i:UserDetails){
+    if(event.target.checked){
+      this.conditionTF = true;  
+      this.Api.updateTaskUnDoneData(i).subscribe({
+        next: (res) => {
+          this.conditionTF = false;  
+          this.fetchUser();
+        },
+        error:(err)=>{
+          this.toastr.error(err);
+        },
+        complete: () => {
+          this.toastr.success("Task Complete")
+        }
+        });
+      }
+      else{
+        this.conditionTF = false;
+        this.Api.updateTaskDoneData(i).subscribe({
+          next: (res) => {
+            this.conditionTF = true;
+            this.fetchUser();
+          },
+          error:(err)=>{
+            this.toastr.error(err);
+          },
+          complete: () => {
+            this.toastr.success("Task Incomplete")
+          }
+      });
+    }
+  }
+
 
   // ############### Add User ##############
   addDetais() {

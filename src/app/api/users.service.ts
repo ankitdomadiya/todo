@@ -38,6 +38,16 @@ export class UsersService {
     return this.http.put(`${this.userUrl}/${body.id}`, body);
   }
 
+  updateTaskDoneData(body:UserDetails){
+    return this.http.put(`${this.userUrl}/${body.id}`,{name:body.name, tag:body.tag, color1:body.color1, color2:body.color2, done:false});
+  }
+  
+  updateTaskUnDoneData(body:UserDetails){
+    return this.http.put(`${this.userUrl}/${body.id}`,{name:body.name, tag:body.tag, color1:body.color1, color2:body.color2, done:true});
+  }
+
+
+
   // ########## Delete Api ################
 
   deleteUser(id: any) {
@@ -52,4 +62,5 @@ export class UserDetails {
   tag?: string;
   color1?: string;
   color2?: string;
+  done:boolean = false;
 }

@@ -1,9 +1,38 @@
 {
   "user": [
     {
-      "name": "sdfsfdsf",
+      "name": "rutvik",
       "tag": "Personal",
+      "done": true,
       "id": 1
+    },
+    {
+      "name": "adsf",
+      "tag": "Food",
+      "done": false,
+      "id": 2
+    },
+    {
+      "name": "fyj",
+      "tag": "Personal",
+      "color1": "#e25555",
+      "color2": "#a37575",
+      "done": false,
+      "id": 3
+    },
+    {
+      "name": "dhg",
+      "tag": "Food",
+      "color1": "#ea8b8b",
+      "color2": "#2ad5b3",
+      "done": false,
+      "id": 4
+    },
+    {
+      "name": "fgh",
+      "tag": "Personal",
+      "done": true,
+      "id": 5
     }
   ]
 }

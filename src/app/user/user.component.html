@@ -27,7 +27,7 @@
         </div>
         <!-- ########### add button for complete and incomplete ######### -->
         <div class="checkbox-wrapper-10">
-          <input class="tgl tgl-flip" id="cb5" type="checkbox" checked />
+          <input class="tgl tgl-flip" id="cb5" (change)="allAndCompletedTasks($event)" type="checkbox" checked />
           <label class="tgl-btn" data-tg-off="Incomplete" data-tg-on="Complete!" for="cb5"></label>
         </div>
       </div>
@@ -38,13 +38,31 @@
         <div class="row ">
           <table>
             <tr>
+              <th>Checkbox</th>
               <th>ID</th>
               <th>Name</th>
               <th>Tag</th>
               <th>Action</th>
             </tr>
             <ng-container *ngFor="let item of FilterEmployeeDetails">
-              <tr class="text-capitalize">
+              <tr *ngIf="conditionTF && item.done" class="text-capitalize">
+                <td><input type="checkbox" (change)="convertDoneOnUnDone($event,item)" checked name="" id=""></td>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td><span [style.color]="item.color2" [style.background-color]="item.color1"
+                    class="p-2 rounded-pill">{{item.tag}}</span></td>
+                <td>
+                  <button class="btn btn-primary circle-border edit-btn" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="fullUserData(item)"><i
+                      class="bi bi-pencil-square"></i></button>
+                  <button class="btn btn-danger circle-border delete-btn left-margin" (click)="deleteUser(item)"><i
+                      class="bi bi-trash3-fill"></i></button>
+                </td>
+              </tr>
+            </ng-container>
+            <ng-container *ngFor="let item of FilterEmployeeDetails">
+              <tr *ngIf="!conditionTF && !item.done" class="text-capitalize">
+                <td><input type="checkbox" (change)="convertDoneOnUnDone($event,item)"  name="" id=""></td>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td><span [style.color]="item.color2" [style.background-color]="item.color1"
