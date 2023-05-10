@@ -119,7 +119,7 @@ export class UserComponent {
         this.userData = res;
         this.FilterEmployeeDetails = res;
       },
-      error: (err) => { this.toastr.error('Hello world!', 'Toastr fun!'); },
+      error: (err) => {  },
       complete: () => {
         // this.toastr.success("Get SuccessFully")
       }
@@ -212,30 +212,4 @@ export class UserComponent {
 
 }
 
-// ##################### color picker #################
-// let colorPicker: HTMLInputElement;
-// const defaultColor: string = "#0000ff";
-
-// window.addEventListener("load", startup, false);
-
-// function startup(): void {
-//   colorPicker = document.querySelector("#color-picker") as HTMLInputElement;
-//   colorPicker.value = defaultColor;
-//   colorPicker.addEventListener("input", updateFirst, false);
-//   colorPicker.addEventListener("change", updateAll, false);
-//   colorPicker.select();
-// }
-
-// function updateFirst(event: Event): void {
-//   const td: HTMLElement | null = document.querySelector("p");
-//   if (td) {
-//     (td.style as any).color = (event.target as HTMLInputElement).value;
-//   }
-// }
-
-// function updateAll(event: Event): void {
-//   document.querySelectorAll("td").forEach((td: HTMLElement) => {
-//     (td.style as any).color = (event.target as HTMLInputElement).value;
-//   });
-// }
 
