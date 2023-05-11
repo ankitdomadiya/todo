@@ -21,23 +21,23 @@
       "tag": "Food",
       "color1": "#b18c8c",
       "color2": "#ffffff",
-      "done": true,
+      "done": false,
       "id": 5
     },
     {
-      "done": false,
       "name": "sadf",
       "tag": "Food",
       "color1": "#ea6c6c",
       "color2": "#f2e9fb",
+      "done": false,
       "id": 6
     },
     {
-      "done": false,
       "name": "af",
       "tag": "Personal",
       "color1": "#d69999",
       "color2": "#fdeded",
+      "done": false,
       "id": 7
     },
     {
@@ -45,23 +45,23 @@
       "tag": "Work",
       "color1": "#929eb9",
       "color2": "#258e5d",
-      "done": true,
+      "done": false,
       "id": 8
     },
     {
-      "done": false,
       "name": "done",
       "tag": "Work",
       "color1": "#80ff00",
       "color2": "#000000",
+      "done": false,
       "id": 9
     },
     {
-      "done": false,
       "name": "work",
       "tag": "Food",
       "color1": "#00ff88",
       "color2": "#1100ff",
+      "done": false,
       "id": 10
     },
     {
@@ -69,15 +69,15 @@
       "tag": "Personal",
       "color1": "#00ff59",
       "color2": "#ffffff",
-      "done": true,
+      "done": false,
       "id": 11
     },
     {
-      "done": false,
       "name": "jim",
       "tag": "Personal",
       "color1": "#00aaff",
       "color2": "#99ff00",
+      "done": false,
       "id": 12
     },
     {
@@ -85,22 +85,22 @@
       "tag": "Food",
       "color1": "#d3a7a7",
       "color2": "#3a8d16",
-      "done": true,
+      "done": false,
       "id": 13
     },
     {
-      "done": false,
       "name": "asdf",
       "tag": "Work",
       "color1": "#e0d7d7",
       "color2": "#668448",
+      "done": false,
       "id": 14
     },
     {
-      "done": false,
       "name": "asdfasdf",
       "tag": "Work",
       "color1": "#2e5620",
+      "done": false,
       "id": 15
     }
   ]

@@ -48,7 +48,19 @@
               </tr>
               <ng-container *ngFor="let item of FilterEmployeeDetails">
                 <tr *ngIf="conditionTF && item.done" class="text-capitalize">
-                  <td><input type="checkbox" (change)="convertDoneOnUnDone($event,item)" checked name="" id=""></td>
+                  
+                  <td>
+                    <!-- <input type="checkbox" (change)="convertDoneOnUnDone($event,item)" checked name="" id=""> -->
+                    <div class="checkbox-wrapper-31 ">
+                      <input type="checkbox" (change)="convertDoneOnUnDone($event,item)" checked/>
+                      <svg viewBox="0 0 35.6 35.6">
+                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                      </svg>
+                    </div>
+                  
+                  </td>
                   <td>{{item.id}}</td>
                   <td>{{item.name}}</td>
                   <td><span [style.color]="item.color2" [style.background-color]="item.color1"
@@ -64,7 +76,17 @@
               </ng-container>
               <ng-container *ngFor="let item of FilterEmployeeDetails">
                 <tr *ngIf="!conditionTF && !item.done" class="text-capitalize">
-                  <td><input type="checkbox" (change)="convertDoneOnUnDone($event,item)" name="" id=""></td>
+                  <td>
+                    <!-- <input type="checkbox" (change)="convertDoneOnUnDone($event,item)" name="" id=""> -->
+                    <div class="checkbox-wrapper-31">
+                      <input type="checkbox" (change)="convertDoneOnUnDone($event,item)"/>
+                      <svg viewBox="0 0 35.6 35.6">
+                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                      </svg>
+                    </div>
+                  </td>
                   <td>{{item.id}}</td>
                   <td>{{item.name}}</td>
                   <td><span [style.color]="item.color2" [style.background-color]="item.color1"
@@ -163,3 +185,4 @@
   <div class="twinkling"></div>
   <div class="clouds"></div>
 </div>
+
