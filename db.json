@@ -5,7 +5,7 @@
       "tag": "Personal",
       "color1": "#d31717",
       "color2": "#c4abab",
-      "done": true,
+      "done": false,
       "id": 3
     },
     {
@@ -13,7 +13,7 @@
       "tag": "Work",
       "color1": "#cac99b",
       "color2": "#6b7b6b",
-      "done": true,
+      "done": false,
       "id": 4
     },
     {
@@ -21,7 +21,7 @@
       "tag": "Food",
       "color1": "#b18c8c",
       "color2": "#ffffff",
-      "done": false,
+      "done": true,
       "id": 5
     },
     {
@@ -29,7 +29,7 @@
       "tag": "Food",
       "color1": "#ea6c6c",
       "color2": "#f2e9fb",
-      "done": false,
+      "done": true,
       "id": 6
     },
     {
@@ -37,7 +37,7 @@
       "tag": "Personal",
       "color1": "#d69999",
       "color2": "#fdeded",
-      "done": false,
+      "done": true,
       "id": 7
     },
     {
@@ -45,7 +45,7 @@
       "tag": "Work",
       "color1": "#929eb9",
       "color2": "#258e5d",
-      "done": false,
+      "done": true,
       "id": 8
     },
     {
@@ -53,7 +53,7 @@
       "tag": "Work",
       "color1": "#80ff00",
       "color2": "#000000",
-      "done": false,
+      "done": true,
       "id": 9
     },
     {
@@ -61,7 +61,7 @@
       "tag": "Food",
       "color1": "#00ff88",
       "color2": "#1100ff",
-      "done": false,
+      "done": true,
       "id": 10
     },
     {
@@ -69,7 +69,7 @@
       "tag": "Personal",
       "color1": "#00ff59",
       "color2": "#ffffff",
-      "done": false,
+      "done": true,
       "id": 11
     },
     {
@@ -77,7 +77,7 @@
       "tag": "Personal",
       "color1": "#00aaff",
       "color2": "#99ff00",
-      "done": false,
+      "done": true,
       "id": 12
     },
     {
@@ -85,7 +85,7 @@
       "tag": "Food",
       "color1": "#d3a7a7",
       "color2": "#3a8d16",
-      "done": false,
+      "done": true,
       "id": 13
     },
     {
@@ -93,14 +93,14 @@
       "tag": "Work",
       "color1": "#e0d7d7",
       "color2": "#668448",
-      "done": false,
+      "done": true,
       "id": 14
     },
     {
       "name": "asdfasdf",
       "tag": "Work",
       "color1": "#2e5620",
-      "done": false,
+      "done": true,
       "id": 15
     }
   ]
