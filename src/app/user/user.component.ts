@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { UserDetails, UsersService } from '../api/users.service';
 import { ToastrService } from 'ngx-toastr';
-import { DOCUMENT } from '@angular/common';
+// import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-user',

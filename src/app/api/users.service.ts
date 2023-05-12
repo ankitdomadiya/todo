@@ -1,3 +1,4 @@
+// import { HttpHeaders } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +8,6 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   constructor(private http: HttpClient) { }
-
 
   httpHeaders = new HttpHeaders(
     {
@@ -63,4 +63,5 @@ export class UserDetails {
   color1?: string;
   color2?: string;
   done:boolean = false;
+
 }
